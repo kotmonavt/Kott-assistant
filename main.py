@@ -77,13 +77,6 @@ def execute():
         subprocess.run("start %windir%\explorer.exe %userprofile%", shell=True)
         sys.exit()
 
-    elif " ".join(command) == 'включи wi-fi' or " ".join(command) == 'включить wi-fi':
-        talk('Чтобы включить wi-fi, введите ssid и имя профиля сети в полях ниже')
-        ssid = input(print('Введите ssid сети, к которой хотите подключиться:'))
-        name_network = input(print('Введите name(имя профиля сети), к которой хотите подключиться:'))
-        subprocess.run(f"netsh wlan connect ssid={ssid} name={name_network}", shell=True)
-        sys.exit()
-
     elif " ".join(command) == 'выключи wi-fi' or " ".join(command) == 'выключить wi-fi':
         talk('Вы уверены, что хотите выключить интернет? Для продолжения скажите "да"')
         with sr.Microphone(device_index=1) as source:
